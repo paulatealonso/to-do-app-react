@@ -1,23 +1,32 @@
-import ToDo from "../ToDo/ToDo"
-import ToDoList from "../ToDoList/ToDoList"
+import { useState } from "react";
+import { NoteContext } from "../../context/NoteContext";
+import data from '../../data.json'
+import ToDoList from "../ToDoList/ToDoList";
+
+
+
 
 
 
 const Form = () => {
-    
+    const [note, setNote] = useState(data)
+
    
 
 
     return (
         <div>
-            <ToDo/>
-            <ToDoList/> 
+            <ToDoList note = {note}/>
+
+
+
 
 
 
         </div>
     )
 }
+
 
 
 export default Form

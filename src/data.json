@@ -1,0 +1,20 @@
+[{
+    "id": 1,
+    "task": "La Paca",
+    "completed": false
+},
+{
+    "id": 2,
+    "task": "La Piraña",
+    "completed": false
+},
+{
+    "id": 3,
+    "task": "Kerry",
+    "completed": true
+},
+{
+    "id": 4,
+    "task": "Caverga",
+    "completed": false
+}]

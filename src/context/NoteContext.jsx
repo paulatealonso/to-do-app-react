@@ -4,12 +4,12 @@ const NoteContext = createContext()
 
 const ContextProvider = ({ children }) => {
     const [note, setNote] = useState([])
+    const [tags, setTags] = useState([])
     const [shipping, setShipping] = useState(0)
 
-    const [choose, setChoose] = useState(false)
 
     return (
-        <NoteContext.Provider value={{note, setNote, shipping, setShipping, choose, setChoose}}>
+        <NoteContext.Provider value={{note, setNote, shipping, setShipping, tags, setTags}}>
             {children}
         </NoteContext.Provider>
     )

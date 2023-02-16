@@ -1,18 +1,17 @@
+
 import Form from "../components/Form/Form"
 
 
 
 const Homepage = () => {
-
+   
 
 
 
     return (
         <div>
-           <Form/>
-
-
-
+            <Form/>
+         
 
         </div>
     )

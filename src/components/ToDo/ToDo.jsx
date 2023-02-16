@@ -1,26 +1,14 @@
-import { useState } from "react";
 
-const ToDo = () => {
-    const [ userInput, setUserInput ] = useState('');
-    
 
-    
 
-    
+const ToDo = ({ notes }) => {
+
 
 
 
     return (
         <div>
-            <label>Añadir nota:</label>
-            <input 
-            type='text' 
-            value={userInput} 
-            onChange={e => setUserInput(e.target.value)}/>
-            <button 
-            disabled = {userInput ? "" : "disabled"}
-            type='submit'
-            > Enviar</button>
+          
 
 
 
