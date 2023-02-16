@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { NoteContext } from "../../context/NoteContext";
 import data from '../../data.json'
+import InputForm from "../InputForm/InputForm";
 import ToDoList from "../ToDoList/ToDoList";
-
-
-
 
 
 
@@ -24,34 +21,20 @@ const Form = () => {
         
     }
 
+    const addNote = (newNote) => {
+        let newMessage = { id : +new Date(), task: newNote, completed: false}
+        
 
+        setNote([...note, newMessage])
+    }
 
 
     return (
         <div>
             <ToDoList note={note} done = {done} deleteNote = {deleteNote}/>
+            <InputForm addNote={addNote}/>
 
-            {/* <form onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget)
-                setNote((items) => [...items, formData.get('todo-list')])
-            }}>
-                <input name="todo-list" />
-                <button type="submit"> Add note </button>
-
-            </form>
-
-            <div>
-                {note.map((item) =>
-                    <div>
-                        {item}
-                    </div>)}
-
-            </div> */}
-
-
-
-
+            
 
         </div>
     )
