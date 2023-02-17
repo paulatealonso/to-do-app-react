@@ -26,13 +26,13 @@ const ToDo = ({ id, task, complete, date, currentDate, setCurrentDate, relevance
 
     switch (relevance) {
         case '1':
-            dotColor = 'red';
+            dotColor = '#D8A2FF';
             break;
         case '2':
-            dotColor = 'orange';
+            dotColor = '#A8FFD9';
             break;
         case '3':
-            dotColor = 'green';
+            dotColor = '#E7008F';
             break;
         default:
             dotColor = 'black';
@@ -50,12 +50,12 @@ const ToDo = ({ id, task, complete, date, currentDate, setCurrentDate, relevance
             </div>
 
             <div className="box-date">
-                <span>{date}</span>
-                <p>Fecha de creación: {isEditing ? (
+                <span className="transparent"><strong className="transparent"> Until: </strong> {date} </span>
+                <p className="transparent"> <strong className="transparent">Creation date:</strong> {isEditing ? (
                     <input type="datetime-local" value={currentDate.toISOString().slice(0, -8)} onChange={(e) => setCurrentDate(new Date(e.target.value))} onBlur={() => setIsEditing(false)}
                         autoFocus />
                 ) : (
-                    <span onClick={() => setIsEditing(true)}>{formattedDate}</span>
+                    <span className="transparent" onClick={() => setIsEditing(true)}>{formattedDate}</span>
 
                 )}</p>
             </div>
