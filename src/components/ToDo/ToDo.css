@@ -1,0 +1,44 @@
+.task-done {
+    text-decoration: line-through;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+}
+
+.conteiner-list {
+    height: 254px;
+    border-radius: 30px;
+    background: lightgrey;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+    display: flex;
+    justify-content: center;
+}
+
+#check-name {
+    display: flex;
+    background-color: transparent;
+}
+
+#check-name h3 {
+    color: blueviolet;
+    background-color: transparent;
+}
+
+#check-name input[type=checkbox] {
+    accent-color: #ec7fdf;
+    width: 25px;
+}
+
+.box-date {
+    background-color: transparent;
+}
+
+.box-date span {
+    background-color: transparent;
+}
+
+.box-date p{
+    background-color: transparent;
+}

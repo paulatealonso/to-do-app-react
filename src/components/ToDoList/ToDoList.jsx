@@ -1,17 +1,20 @@
-import ToDo from "../ToDo/ToDo"
+import { useContext } from "react";
+import { NoteContext } from "../../context/NoteContext";
+import ToDo from "../ToDo/ToDo";
 
 
 
-const ToDoList = ({note , done, deleteNote}) => {
 
-   
+const ToDoList = () => {
+
+    const { message } = useContext(NoteContext)
 
 
     return (
         <div>
-            {note.map((notes, index) => (<ToDo key={index} notes = {notes} done = {done} deleteNote = {deleteNote}/>))}
-            
-
+            {message.map((notes, i) =>
+                  <ToDo key={i} {...notes} /> 
+            )}
         </div>
     )
 }

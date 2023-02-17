@@ -1,0 +1,103 @@
+.input-note {
+    color: #FFA2F4;
+    border: 2px solid #FFA2F4;
+    border-radius: 10px;
+    padding: 10px 25px;
+    height: 26.5px;
+    background: transparent;
+    width: 900px;
+}
+
+.input-note:active {
+    box-shadow: 2px 2px 15px #FFA2F4 inset;
+}
+
+#img-header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#form-note {
+    text-align: center;
+}
+
+#conteiner-form {
+    display: flex;
+}
+
+.btn-input {
+    padding: 1rem 2rem;
+    font-weight: 700;
+    background: transparent;
+    color: #FFA2F4;
+    border-radius: .5rem;
+    border-bottom: 2px solid #FFA2F4;
+    border-right: 2px solid #FFA2F4;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    transition-duration: 1s;
+    transition-property: border-top,
+        border-left,
+        border-bottom,
+        border-right,
+        box-shadow;
+}
+
+.btn-input:hover {
+    border-top: 2px solid #FFA2F4;
+    border-left: 2px solid #FFA2F4;
+    border-bottom: 2px solid rgb(238, 103, 238);
+    border-right: 2px solid rgb(238, 103, 238);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+}
+
+#box-conteiners-form {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 87px;
+    margin-top: 5px;
+}
+
+.conteiner-tag input {
+    color: #FFA2F4;
+    border: 2px solid #FFA2F4;
+    border-radius: 10px;
+    padding: 10px 25px;
+    height: 16px;
+    background: transparent;
+    width: 100px;
+}
+
+.conteiner-tag input:active {
+    box-shadow: 2px 2px 15px #FFA2F4 inset;
+}
+
+.conteiner-relevance select {
+    color: #FFA2F4;
+    border: 2px solid #FFA2F4;
+    border-radius: 10px;
+    padding: 10px 25px;
+    height: 40px;
+    background: transparent;
+    width: 170px;
+}
+
+.conteiner-relevance select:active {
+    box-shadow: 2px 2px 15px #FFA2F4 inset;
+}
+
+.conteiner-date input {
+    color: #FFA2F4;
+    border: 2px solid #FFA2F4;
+    border-radius: 10px;
+    padding: 10px 25px;
+    height: 16px;
+    background: transparent;
+    width: 120px;
+}
+
+.conteiner-date input:active {
+    box-shadow: 2px 2px 15px #FFA2F4 inset;
+}
+
