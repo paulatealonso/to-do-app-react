@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
 import { NoteContext } from "../../context/NoteContext";
 import './ToDo.css'
+import calendar from '../assets/calendar.png'
 
-const ToDo = ({ id, task, complete, date, currentDate, setCurrentDate, relevance }) => {
+
+const ToDo = ({ id, task, complete, date, currentDate, setCurrentDate, relevance, tag }) => {
 
     const { setStatusTask } = useContext(NoteContext)
     const checkTask = e => setStatusTask(id, e.target.checked)
@@ -43,27 +45,42 @@ const ToDo = ({ id, task, complete, date, currentDate, setCurrentDate, relevance
 
 
     return (
-        <div className="conteiner-list">
-            <div id="check-name">
-                <input type="checkbox" onChange={checkTask} />
-                <h3 className={complete ? 'task-done' : ''}>{task}</h3>
+        <div className="conteiner-list" style={{ backgroundColor: dotColor }}>
+            <div className="card-info" style={{ backgroundColor: 'transparent' }}>
+                <div id="check-name">
+                    <input type="checkbox" onChange={checkTask} />
+                    <h3 className={complete ? 'task-done' : ''}>{task}</h3>
+                </div>
+
+                <div id="tag-task">
+                    {tag && <p>✨{tag}✨</p>}
+                </div>
+
+
+
+                <div className="box-date">
+
+                    <div className="calendar-box" id="datetime"> {isEditing ? (
+                        <input type="datetime-local"
+                            value={currentDate.toISOString().slice(0, -8)}
+                            onChange={(e) => setCurrentDate(new Date(e.target.value))}
+                            onBlur={() => setIsEditing(false)}
+                            autoFocus />) : (
+
+                        <p className="transparent" id="line" onClick={() => setIsEditing(true)}>{formattedDate}</p>
+                    )}
+                    </div>
+
+
+                    <div style={{ paddingTop: '25px' }} className="calendar-box">
+                        <img src={calendar} alt='calendar' />
+                        <p className="transparent">{date}</p>
+                    </div>
+
+                </div>
             </div>
 
-            <div className="box-date">
-                <span className="transparent"><strong className="transparent"> Until: </strong> {date} </span>
-                <p className="transparent"> <strong className="transparent">Creation date:</strong> {isEditing ? (
-                    <input type="datetime-local" value={currentDate.toISOString().slice(0, -8)} onChange={(e) => setCurrentDate(new Date(e.target.value))} onBlur={() => setIsEditing(false)}
-                        autoFocus />
-                ) : (
-                    <span className="transparent" onClick={() => setIsEditing(true)}>{formattedDate}</span>
 
-                )}</p>
-            </div>
-
-            <div
-                className="dot"
-                style={{ backgroundColor: dotColor }}
-            ></div>
         </div>
     )
 }

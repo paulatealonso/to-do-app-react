@@ -2,22 +2,15 @@
     text-decoration: line-through;
 }
 
-.dot {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 45px;
-}
-
 .conteiner-list {
-    height: 150px;
-    border-radius: 30px;
-    background: lightgrey;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+    width: 320px;
+    height: 254px;
+    border-radius: 1em;
+    padding: 1.9rem;
     display: flex;
-    justify-content: space-between;
-    padding: 40px;
-    margin: 15px;
+    align-items: flex-end;
+    box-shadow: #ffffff 0px 30px 50px -12px inset, #959595 0px 18px 26px -18px inset;
+    margin-top: 20px;
 }
 
 #check-name {
@@ -42,17 +35,58 @@
 }
 
 .box-date {
-    background-color: transparent;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgb(238, 238, 238);
     display: flex;
-    justify-content: space-between;
-    width: 700px;
-    align-items: center;
-    font-size: 20px;
+    flex-direction: column;
+    width: 200px;
+    font-size: 18px;
     color: #ec7fdf;
     font-weight: 400px;
+    padding: 15px 20px;
+    height: 130px;
+    box-shadow: #FFE5F5 0px 30px 50px -12px inset, #474747 0px 18px 26px -18px inset;
+}
+
+.box-date img {
+    width: 50px;
+    background-color: transparent;
+    padding-right: 10px;
+
 }
 
 .transparent {
     background-color: transparent;
 }
 
+#tag-task {
+    background-color: transparent;
+}
+
+#tag-task p {
+    background-color: transparent;
+    color: white;
+}
+
+.calendar-box {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+
+#datetime p {
+    font-size: 18px;
+}
+
+
+#line {
+    padding-bottom: 10px;
+    width: 500px;
+    text-align: center;
+    border-bottom: 1px solid #ec7fdf;
+}

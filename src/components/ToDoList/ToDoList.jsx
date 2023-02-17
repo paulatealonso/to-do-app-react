@@ -11,7 +11,7 @@ const ToDoList = () => {
 
 
     return (
-        <div>
+        <div style={{display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
             {message.map((notes, i) =>
                   <ToDo key={i} {...notes} /> 
             )}

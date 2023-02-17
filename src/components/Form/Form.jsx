@@ -99,7 +99,7 @@ const Form = () => {
                 <div key={note.id}>
                     <span>{note.date}</span>
                     <p>{note.task}</p>
-                    {note.tag && <p>Etiqueta: {note.tag}</p>}
+                    
                 </div>
             ))}
 
