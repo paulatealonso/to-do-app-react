@@ -2,7 +2,7 @@
     text-decoration: line-through;
 }
 
-.conteiner-list {
+#conteiner-list {
     width: 320px;
     height: 254px;
     border-radius: 1em;
@@ -89,4 +89,16 @@
     width: 500px;
     text-align: center;
     border-bottom: 1px solid #ec7fdf;
+}
+
+.medium {
+    background-color: #D8A2FF;
+}
+
+.high {
+    background-color: #A8FFD9;
+}
+
+.low {
+    background-color: #E7008F;
 }

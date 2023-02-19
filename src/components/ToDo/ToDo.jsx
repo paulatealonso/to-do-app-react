@@ -4,11 +4,12 @@ import './ToDo.css'
 import calendar from '../assets/calendar.png'
 
 
-const ToDo = ({ id, task, complete, date, currentDate, setCurrentDate, relevance, tag }) => {
+const ToDo = ({ id, task, complete, date, setCurrentDate, currentDate, tag, deleteTask , relevance}) => {
 
     const { setStatusTask } = useContext(NoteContext)
-    const checkTask = e => setStatusTask(id, e.target.checked)
     const [isEditing, setIsEditing] = useState(false);
+
+    const checkTask = e => setStatusTask(id, e.target.checked)
 
     const handleUpdateDate = () => {
         setCurrentDate(new Date());
@@ -24,28 +25,19 @@ const ToDo = ({ id, task, complete, date, currentDate, setCurrentDate, relevance
         second: 'numeric'
     });
 
-    let dotColor;
 
-    switch (relevance) {
-        case '1':
-            dotColor = '#D8A2FF';
-            break;
-        case '2':
-            dotColor = '#A8FFD9';
-            break;
-        case '3':
-            dotColor = '#E7008F';
-            break;
-        default:
-            dotColor = 'black';
+
+    const handleClick = () => {
+        deleteTask(id);
     }
 
-
-
+  
+  
 
 
     return (
-        <div className="conteiner-list" style={{ backgroundColor: dotColor }}>
+        <div  className={relevance === '1' ? 'low' : relevance === '2' ? 'medium' : 'low'} id='conteiner-list'>
+            <button className="delete-button" onClick={handleClick}>Delete</button>
             <div className="card-info" style={{ backgroundColor: 'transparent' }}>
                 <div id="check-name">
                     <input type="checkbox" onChange={checkTask} />
@@ -61,11 +53,14 @@ const ToDo = ({ id, task, complete, date, currentDate, setCurrentDate, relevance
                 <div className="box-date">
 
                     <div className="calendar-box" id="datetime"> {isEditing ? (
-                        <input type="datetime-local"
-                            value={currentDate.toISOString().slice(0, -8)}
-                            onChange={(e) => setCurrentDate(new Date(e.target.value))}
-                            onBlur={() => setIsEditing(false)}
-                            autoFocus />) : (
+                        <div>
+                            <input type="datetime-local"
+                                value={currentDate}
+                                onChange={(e) => setCurrentDate(e.target.value)}
+                                onBlur={() => setIsEditing(false)}
+                                autoFocus />
+                            <button onClick={handleUpdateDate}>CHANGE</button>
+                        </div>) : (
 
                         <p className="transparent" id="line" onClick={() => setIsEditing(true)}>{formattedDate}</p>
                     )}

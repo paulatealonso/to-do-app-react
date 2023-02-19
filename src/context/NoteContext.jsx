@@ -5,7 +5,7 @@ const NoteContext = createContext()
 
 const ContextProvider = ({ children }) => {
     const [message, setMessage] = useState([])
-    const [shipping, setShipping] = useState(0)
+    
 
     const addTask = (task , date, currentDate, relevance, tag) =>
     setMessage([
@@ -21,13 +21,21 @@ const ContextProvider = ({ children }) => {
         }
     ])
 
+
+
     const setStatusTask = (id, status) => {
         setMessage(message.map(t => t.id === id ? {...t, complete: status} : t))
+       
     }
 
+    const deleteTask = (id) => {
+        setMessage(message.filter((t) => t.id !== id));
+    }
+
+   
 
     return (
-        <NoteContext.Provider value={{message, setMessage, shipping, setShipping, addTask, setStatusTask}}>
+        <NoteContext.Provider value={{message, setMessage, addTask, setStatusTask, deleteTask}}>
             {children}
         </NoteContext.Provider>
     )

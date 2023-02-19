@@ -11,17 +11,15 @@ const Form = () => {
     const [date, setDate] = useState('')
     const [tag, setTag] = useState('')
     const { addTask, message, setMessage } = useContext(NoteContext)
-    const [currentDate, setCurrentDate] = useState(new Date())
     const [relevance, setRelevance] = useState('')
     const [sortDirection, setSortDirection] = useState('asc')
 
     const submitNote = (e) => {
         e.preventDefault()
-        addTask(task, date, currentDate, relevance, tag)
+        addTask(task, date, relevance, tag)
         setTask('')
         setTag('')
         setDate('')
-        setCurrentDate('')
         setRelevance('')
     }
 
@@ -41,6 +39,7 @@ const Form = () => {
     }
 
     const sortedNotes = sortNotes(message, sortDirection);
+
 
 
     return (
@@ -79,7 +78,7 @@ const Form = () => {
                         <div className="conteiner-relevance">
                             <select value={relevance} onChange={e => setRelevance(e.target.value)}>
                                 <option value="">Priority</option>
-                                <option value="1">Low</option>
+                                <option value="1" >Low</option>
                                 <option value="2">Medium</option>
                                 <option value="3">High</option>
                             </select>
@@ -99,7 +98,6 @@ const Form = () => {
                 <div key={note.id}>
                     <span>{note.date}</span>
                     <p>{note.task}</p>
-                    
                 </div>
             ))}
 
