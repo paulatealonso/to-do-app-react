@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NoteContext } from "../../context/NoteContext";
 import './ToDo.css'
 import calendar from '../assets/calendar.png'
 
 
-const ToDo = ({ id, task, complete, date, setCurrentDate, currentDate, tag, deleteTask , relevance}) => {
+const ToDo = ({ id, task, complete, date, setCurrentDate, currentDate, tag, deleteTask, relevance }) => {
 
     const { setStatusTask } = useContext(NoteContext)
     const [isEditing, setIsEditing] = useState(false);
@@ -31,12 +31,13 @@ const ToDo = ({ id, task, complete, date, setCurrentDate, currentDate, tag, dele
         deleteTask(id);
     }
 
-  
-  
+
+
 
 
     return (
-        <div  className={relevance === '1' ? 'low' : relevance === '2' ? 'medium' : 'low'} id='conteiner-list'>
+        <div id='conteiner-list' className={relevance === '1' ? 'low' : relevance === '2' ? 'medium' : 'high'}>
+            
             <button className="delete-button" onClick={handleClick}>Delete</button>
             <div className="card-info" style={{ backgroundColor: 'transparent' }}>
                 <div id="check-name">

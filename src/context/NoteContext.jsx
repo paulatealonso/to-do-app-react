@@ -5,6 +5,7 @@ const NoteContext = createContext()
 
 const ContextProvider = ({ children }) => {
     const [message, setMessage] = useState([])
+   
     
 
     const addTask = (task , date, currentDate, relevance, tag) =>
@@ -13,9 +14,9 @@ const ContextProvider = ({ children }) => {
         {
             id: v4(),
             task,
+            tag,
             currentDate,
             date,
-            tag,
             relevance,
             complete: false
         }

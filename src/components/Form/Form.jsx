@@ -16,7 +16,7 @@ const Form = () => {
 
     const submitNote = (e) => {
         e.preventDefault()
-        addTask(task, date, relevance, tag)
+        addTask(task, date, tag, relevance)
         setTask('')
         setTag('')
         setDate('')
@@ -76,7 +76,9 @@ const Form = () => {
 
                     {task && (
                         <div className="conteiner-relevance">
-                            <select value={relevance} onChange={e => setRelevance(e.target.value)}>
+                            <select
+                                value={relevance}
+                                onChange={e => setRelevance(e.target.value)}>
                                 <option value="">Priority</option>
                                 <option value="1" >Low</option>
                                 <option value="2">Medium</option>
@@ -93,7 +95,7 @@ const Form = () => {
                 </div>
 
             </form>
-            
+
             {sortedNotes.map(note => (
                 <div key={note.id}>
                     <span>{note.date}</span>
@@ -101,7 +103,7 @@ const Form = () => {
                 </div>
             ))}
 
-            
+
         </div>
     )
 }
