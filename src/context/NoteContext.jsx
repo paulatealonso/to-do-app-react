@@ -14,10 +14,10 @@ const ContextProvider = ({ children }) => {
         {
             id: v4(),
             task,
-            tag,
             currentDate,
             date,
             relevance,
+            tag,
             complete: false
         }
     ])

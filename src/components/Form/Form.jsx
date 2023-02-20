@@ -13,13 +13,14 @@ const Form = () => {
     const { addTask, message, setMessage } = useContext(NoteContext)
     const [relevance, setRelevance] = useState('')
     const [sortDirection, setSortDirection] = useState('asc')
+    const [originalMessage, setOriginalMessage] = useState([]);
 
     const submitNote = (e) => {
         e.preventDefault()
         addTask(task, date, tag, relevance)
         setTask('')
-        setTag('')
         setDate('')
+        setTag('')
         setRelevance('')
     }
 
@@ -40,13 +41,31 @@ const Form = () => {
 
     const sortedNotes = sortNotes(message, sortDirection);
 
+    const getUniqueRelevances = () => {
+        const relevances = message.map(note => note.relevance);
+        return [...new Set(relevances)];
+    };
+
+    const uniqueRelevances = getUniqueRelevances();
+    const showRelevanceButton = uniqueRelevances.length > 2;
+
+    const filterByRelevance = (relevance) => {
+        const filteredNotes = message.filter(note => note.relevance === relevance);
+        setOriginalMessage(message);
+        setMessage(filteredNotes);
+    };
+
+    const showAllNotes = () => {
+        setMessage(originalMessage);
+    };
+
 
 
     return (
         <div id="conteier-form">
 
-            <div id="img-header">
-                <img src={titleImg} alt='title-img' />
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <h1 className="neon">to do list</h1>
             </div>
 
             <form onSubmit={submitNote}>
@@ -94,14 +113,33 @@ const Form = () => {
                     )}
                 </div>
 
+                {showRelevanceButton && (
+                    <div>
+                        {uniqueRelevances.map(relevance => (
+                            <button
+                                key={relevance}
+                                className="btn-input"
+                                type="button"
+                                onClick={() => filterByRelevance(relevance)}
+                            >
+                                {`Relevance ${relevance}`}
+                            </button>
+                        ))}
+                        <button
+                            className="btn-input"
+                            type="button"
+                            onClick={() => showAllNotes()}
+                        >
+                            Show all notes
+                        </button>
+                    </div>
+                )}
+
+
+
             </form>
 
-            {sortedNotes.map(note => (
-                <div key={note.id}>
-                    <span>{note.date}</span>
-                    <p>{note.task}</p>
-                </div>
-            ))}
+            
 
 
         </div>

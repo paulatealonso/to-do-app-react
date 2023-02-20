@@ -3,14 +3,26 @@
 }
 
 #conteiner-list {
-    width: 320px;
-    height: 254px;
+    width: 300px;
+    height: 214px;
     border-radius: 1em;
     padding: 1.9rem;
     display: flex;
     align-items: flex-end;
     box-shadow: #ffffff 0px 30px 50px -12px inset, #959595 0px 18px 26px -18px inset;
     margin-top: 20px;
+}
+
+#img-trash {
+    background-color: transparent;
+    width: 30px;
+    cursor: pointer;
+    margin-bottom: 190px;
+    margin-left: 8px;
+}
+
+#img-trash:hover {
+    width: 33px;
 }
 
 #check-name {
@@ -26,12 +38,15 @@
     padding-left: 30px;
     font-size: 35px;
     font-weight: 300px;
+    margin-top:10px; 
 }
 
 #check-name input[type=checkbox] {
     accent-color: #ec7fdf;
     width: 25px;
     height: 30px;
+    margin-top:10px;
+    
 }
 
 .box-date {
@@ -40,20 +55,14 @@
     border: 1px solid rgb(238, 238, 238);
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 220px;
     font-size: 18px;
     color: #ec7fdf;
     font-weight: 400px;
     padding: 15px 20px;
-    height: 130px;
-    box-shadow: #FFE5F5 0px 30px 50px -12px inset, #474747 0px 18px 26px -18px inset;
-}
-
-.box-date img {
-    width: 50px;
-    background-color: transparent;
-    padding-right: 10px;
-
+    height: 155px;
+    margin-bottom: 10px;
+    margin-left: 15px;
 }
 
 .transparent {
@@ -80,16 +89,23 @@
 
 
 #datetime p {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 
 #line {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    padding-top: 5px;
     width: 500px;
     text-align: center;
     border-bottom: 1px solid #ec7fdf;
 }
+
+#line:hover {
+    font-size: 15px;
+}
+
+
 
 .medium {
     background-color: #D8A2FF;
