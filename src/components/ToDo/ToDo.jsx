@@ -58,6 +58,7 @@ const ToDo = ({ id, task, complete, date, setCurrentDate, currentDate, tag, dele
                         <input type="datetime-local"
                             value={formattedDate}
                             onChange={(e) => setCurrentDate(e.target.value)}
+                            onBlur= {() => setIsEditing(false)}
                             autoFocus
                             style={{ backgroundColor: 'white', textAlign: 'center' }}
                         />
