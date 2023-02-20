@@ -1,9 +1,6 @@
 import { useContext, useState } from "react";
 import { NoteContext } from "../../context/NoteContext";
 import './Form.css'
-import titleImg from '../assets/black-todo.jpeg'
-
-
 
 
 const Form = () => {
@@ -14,6 +11,8 @@ const Form = () => {
     const [relevance, setRelevance] = useState('')
     const [sortDirection, setSortDirection] = useState('asc')
     const [originalMessage, setOriginalMessage] = useState([]);
+    const [showAllButton, setShowAllButton] = useState(false);
+
 
     const submitNote = (e) => {
         e.preventDefault()
@@ -39,32 +38,30 @@ const Form = () => {
         });
     }
 
-    const sortedNotes = sortNotes(message, sortDirection);
-
     const getUniqueRelevances = () => {
         const relevances = message.map(note => note.relevance);
         return [...new Set(relevances)];
     };
 
     const uniqueRelevances = getUniqueRelevances();
-    const showRelevanceButton = uniqueRelevances.length > 2;
 
     const filterByRelevance = (relevance) => {
         const filteredNotes = message.filter(note => note.relevance === relevance);
+        setShowAllButton(true);
         setOriginalMessage(message);
         setMessage(filteredNotes);
     };
 
     const showAllNotes = () => {
         setMessage(originalMessage);
+        setShowAllButton(false);
     };
-
 
 
     return (
         <div id="conteier-form">
 
-            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <h1 className="neon">to do list</h1>
             </div>
 
@@ -113,33 +110,32 @@ const Form = () => {
                     )}
                 </div>
 
-                {showRelevanceButton && (
-                    <div>
-                        {uniqueRelevances.map(relevance => (
-                            <button
-                                key={relevance}
-                                className="btn-input"
-                                type="button"
-                                onClick={() => filterByRelevance(relevance)}
-                            >
-                                {`Relevance ${relevance}`}
-                            </button>
-                        ))}
-                        <button
-                            className="btn-input"
-                            type="button"
-                            onClick={() => showAllNotes()}
-                        >
+                <div style={{marginLeft: '85px', marginTop: '10px'}}>
+
+                   
+                        
+                            {uniqueRelevances.map(relevance => (
+                                <button
+                                    key={relevance}
+                                    className="btn-input"
+                                    type="button"
+                                    onClick={() => filterByRelevance(relevance)}
+                                >
+                                    {`Priority ${relevance}`}
+                                </button>
+                            ))}
+                     
+                    {showAllButton && (
+                        <button className="btn-input" onClick={showAllNotes}>
                             Show all notes
                         </button>
-                    </div>
-                )}
+                    )}
 
-
+                </div>
 
             </form>
 
-            
+
 
 
         </div>

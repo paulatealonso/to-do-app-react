@@ -98,7 +98,7 @@
     padding-top: 5px;
     width: 500px;
     text-align: center;
-    border-bottom: 1px solid #ec7fdf;
+    
 }
 
 #line:hover {
@@ -117,4 +117,11 @@
 
 .low {
     background-color: #E7008F;
+}
+
+#border-date {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ec7fdf;
 }
